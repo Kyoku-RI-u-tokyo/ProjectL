@@ -1,13 +1,13 @@
-$def with (site_title, stylesheet, jquery_core, jquery_ui, main_tab, t)
+$def with (site_title, jquery_conf, main_tab, t)
 
 <html>
 <!--<html lang="en">-->
 <head>
     <!--<meta charset="UTF-8">-->
     <title> $site_title </title>
-    <link rel="stylesheet" href=$stylesheet>
-    <script src=$jquery_core></script>
-    <script src=$jquery_ui></script>
+    <link rel="stylesheet" href=$:(jquery_conf["stylesheet"]))>
+    <script src=$:(jquery_conf["core"])></script>
+    <script src=$:(jquery_conf["ui"])></script>
     <script>
     $$(function() {
         $$( "#main_tab" ).tabs({

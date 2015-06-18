@@ -1,12 +1,13 @@
 # coding:utf-8
 
 # For Web:
-stylesheet = "http://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css"
-jquery_core = "http://code.jquery.com/jquery-1.11.3.js"
-jquery_ui = "http://code.jquery.com/ui/1.11.4/jquery-ui.js"
-
+jquery_conf = {
+    "stylesheet": "\"http://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css\"",
+    "core": "\"http://code.jquery.com/jquery-1.11.3.js\"",
+    "ui": "\"http://code.jquery.com/ui/1.11.4/jquery-ui.js\""
+    }
+    
 site_title = "ProjectL" #TODO: set this a better title
-
 # For Model:
 
 

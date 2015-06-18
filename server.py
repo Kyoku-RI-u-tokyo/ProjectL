@@ -1,11 +1,9 @@
 # coding:utf-8
 
-import time
-
 import web
-import drawer
 
-from model import conf
+from controller import drawer
+import conf
 
 urls = (
     "/", "HomeView",
@@ -13,20 +11,14 @@ urls = (
 )
 
 app = web.application(urls, globals(), autoreload=True)
-
 render = web.template.render("view/", cache=False)
 
-
-
-main_tab = drawer.main_tab_drawer()
-t = None
+t = ""
 class HomeView:
     def GET(self):
         return render.home(site_title=conf.site_title,
-                           stylesheet=conf.stylesheet,
-                           jquery_core=conf.jquery_core,
-                           jquery_ui=conf.jquery_ui,
-                           main_tab=main_tab, t=t)
+                           jquery_conf=conf.jquery_conf,
+                           main_tab=drawer.main_tab_drawer(), t=t)
 
 
 
