@@ -1,19 +1,19 @@
 # coding:utf-8
 import web
 import xmlrpclib
-s = xmlrpclib.ServerProxy('http://localhost:10000')
+server = xmlrpclib.ServerProxy('http://localhost:10000')
 
 from supporter import debug_tools
 
 def demo_func():
-    return s.demo()
+    return server.demo()
 
 from controller import drawer
 import conf
 
 urls = (
     "/", "HomeView",
-    "/article", "NewsView"
+    conf.news_view_root_url, "NewsView"
 )
 
 app = web.application(urls, globals(), autoreload=True)
@@ -28,9 +28,10 @@ class HomeView:
 
 class NewsView:
     def GET(self):
-        form = web.input(news_id="0")
+        form = web.input(news_id="", title="")
         news_id = form.news_id
-        return render.news(news_id=news_id)
+        title = form.title
+        return render.news(news_id=news_id, title=title)
 
 if __name__ == "__main__":
     debug_tools.console_print("web_server is ready to go")

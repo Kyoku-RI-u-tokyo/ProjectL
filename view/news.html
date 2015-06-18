@@ -1,10 +1,10 @@
-$def with (news_id)
+$def with (news_id, title)
 
 <html>
 <head>
     <!--<meta http-equiv="refresh" content="20">-->
     <title>
-        Article
+        $:title
     </title>
 </head>
     <body>
@@ -16,6 +16,6 @@ $def with (news_id)
 
         </div>
 
-        <iframe style="width:100%; height:100%" scrolling=auto" src="http://news.livedoor.com/article/detail/10245836/"></iframe>
+        <iframe style="width:100%; height:100%" scrolling="auto" src="$:(news_id)"></iframe>
     </body>
 </html>

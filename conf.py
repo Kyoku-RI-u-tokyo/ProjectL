@@ -8,6 +8,9 @@ jquery_conf = {
     }
     
 site_title = "ProjectL" #TODO: set this a better title
+
+news_view_root_url = "/article"
+
 # For Model:
 
 

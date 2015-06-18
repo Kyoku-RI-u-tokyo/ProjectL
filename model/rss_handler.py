@@ -10,7 +10,3 @@ def parse_livedoor():
         parsed_livedoor_rss[each_key] = feedparser.parse(conf.livedoor_rss[each_key])
 
     return parsed_livedoor_rss
-
-
-
-livedoor = parse_livedoor()
