@@ -1,7 +1,5 @@
 # coding:utf-8
 import web
-import xmlrpclib
-# server = xmlrpclib.ServerProxy('http://localhost:10000')
 
 from supporter import debug_tools
 
@@ -30,9 +28,6 @@ class NewsView:
         news_id = form.news_id
         title = form.title
         return render.news(news_id=news_id, title=title, bests=drawer.best_match_drawer(news_id))
-
-
-# bests = drawer.best_match_drawer("123")
 
 if __name__ == "__main__":
     debug_tools.console_print("web_server is ready to go")

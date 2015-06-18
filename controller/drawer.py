@@ -39,7 +39,6 @@ def best_match_drawer(news_id):
         title = each[1].encode("utf8")
         link = conf.news_view_root_url + "?news_id=" + each[0].encode("utf8") \
                + "&" + "title=" + title
-
         to_draw += """<a href = "{link}">{text}</a><br>""".format(link=link, text=title)
 
 

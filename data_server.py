@@ -50,12 +50,6 @@ class DataHandler():
                 break
             elif each.get_id() != news.get_id():
                 result.append(each)
-        # print(news)
-        # print("="*10)
-        # for each in result:
-        #     print each
-        #     print content_handler.cal_hamming_distance(news.get_simhash_value(), each.get_simhash_value())
-        # return result
         return result
 
 
@@ -71,7 +65,6 @@ def get_best_n_match(news_id, n=3):
     for each in data_handler.get_best_n_match_news(data_handler.rss_all[news_id], n):
         result.append([each.get_link(), each.get_title()])
     return result
-    # return data_handler.get_best_n_match_news(data_handler.rss_all[news_id], n)
 server.register_function(get_best_n_match, 'get_best_n_match')
 
 # Server on
