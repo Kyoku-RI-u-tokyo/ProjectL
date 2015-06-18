@@ -4,7 +4,6 @@ import feedparser
 
 import conf
 
-
 def parse_livedoor():
     parsed_livedoor_rss = {}
     for each_key in conf.livedoor_rss.keys():
