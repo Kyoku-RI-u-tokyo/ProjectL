@@ -1,4 +1,4 @@
-$def with (news_id, title)
+$def with (news_id, title, bests)
 
 <html>
 <head>
@@ -9,10 +9,9 @@ $def with (news_id, title)
 </head>
     <body>
         <div class="navbar" style="width:100%">
-            news1 <br>
-            news2 <br>
-            news3 <br>
-            $news_id <br>
+            <a href="/">一覧に戻る</a> <br>
+            関連記事 <br>
+            $:bests <br>
 
         </div>
 

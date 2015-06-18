@@ -44,11 +44,10 @@ def parse_livedoor():
 
 def parse_all():
     """parse all the RSS resources"""
-    resources = []
+    resources = {}
     for each_rss_xml in conf.all_rss:
         parsed = feedparser.parse(each_rss_xml)
         for each in parsed["entries"]:
             news = News(each["title"].encode("utf8"), each["link"].encode("utf8"))
-            resources.append(news)
-
+            resources[news.get_id()]=news
     return resources

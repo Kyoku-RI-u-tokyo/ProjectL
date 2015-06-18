@@ -1,12 +1,10 @@
 # coding:utf-8
 import web
 import xmlrpclib
-server = xmlrpclib.ServerProxy('http://localhost:10000')
+# server = xmlrpclib.ServerProxy('http://localhost:10000')
 
 from supporter import debug_tools
 
-def demo_func():
-    return server.demo()
 
 from controller import drawer
 import conf
@@ -17,21 +15,24 @@ urls = (
 )
 
 app = web.application(urls, globals(), autoreload=True)
-render = web.template.render("view/", globals={'demo_f':demo_func}, cache=False)
+render = web.template.render("view/", cache=False)
 
 t = ""
 class HomeView:
     def GET(self):
         return render.home(site_title=conf.site_title,
                            jquery_conf=conf.jquery_conf,
-                           main_tab=drawer.main_tab_drawer(), demo_func=demo_func, t=t)
+                           main_tab=drawer.main_tab_drawer(), t=t)
 
 class NewsView:
     def GET(self):
         form = web.input(news_id="", title="")
         news_id = form.news_id
         title = form.title
-        return render.news(news_id=news_id, title=title)
+        return render.news(news_id=news_id, title=title, bests=drawer.best_match_drawer(news_id))
+
+
+# bests = drawer.best_match_drawer("123")
 
 if __name__ == "__main__":
     debug_tools.console_print("web_server is ready to go")
