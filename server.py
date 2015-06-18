@@ -20,8 +20,6 @@ class HomeView:
                            jquery_conf=conf.jquery_conf,
                            main_tab=drawer.main_tab_drawer(), t=t)
 
-
-
 class NewsView:
     def GET(self):
         form = web.input(news_id="0")

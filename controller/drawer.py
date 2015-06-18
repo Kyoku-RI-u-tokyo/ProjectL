@@ -30,3 +30,7 @@ def main_tab_drawer():
         main_tab += "\n"
 
     return main_tab
+
+
+def news_drawer():
+    return ""
