@@ -1,0 +1,49 @@
+$def with (site_title, stylesheet, jquery_core, jquery_ui, tabs_num, t)
+
+<html>
+<!--<html lang="en">-->
+<head>
+    <!--<meta charset="UTF-8">-->
+    <title> $site_title </title>
+    <link rel="stylesheet" href=$stylesheet>
+    <script src=$jquery_core></script>
+    <script src=$jquery_ui></script>
+    <script>
+    $$(function() {
+        $$( "#main_tab" ).tabs({
+            event: "mouseover"
+        });
+    });
+    </script>
+</head>
+<body>
+
+<div id="main_tab">
+    <ul>
+        <li><a href="#tabs_1">tab 1</a></li>
+        <li><a href="#tabs_2">tab 2</a></li>
+        <li><a href="#tabs_3">tab 3</a></li>
+        <li><a href="#tabs_4">tab 4</a></li>
+        $for i in range(5, 5 + tabs_num):
+            <li><a href="#tabs_$i")>tab $(i+1)</a></li>
+
+    </ul>
+    <div id="tabs_1">
+        <p>1</p>
+    </div>
+    <div id="tabs_2">
+        <p>2</p>
+    </div>
+    <div id="tabs_3">
+        <p>3</p>
+    </div>
+    <div id="tabs_4">
+        <p>4</p>
+    </div>
+
+    $for i in range(5, 5 + tabs_num):
+        <div id="tabs_$i"><p>$(i+1)</p></div>
+
+</div>
+</body>
+</html>
