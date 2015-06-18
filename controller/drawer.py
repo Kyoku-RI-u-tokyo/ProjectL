@@ -1,9 +1,7 @@
 # coding:utf-8
 from model import rss_handler
 
-
 livedoor = rss_handler.parse_livedoor()
-
 
 def main_tab_drawer():
     main_tab = ""
