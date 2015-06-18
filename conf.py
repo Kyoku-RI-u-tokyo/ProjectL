@@ -1,4 +1,6 @@
 # coding:utf-8
+from supporter import debug_tools
+
 
 # For Web:
 jquery_conf = {
@@ -12,11 +14,14 @@ site_title = "ProjectL" #TODO: set this a better title
 news_view_root_url = "/article"
 
 # For Model:
+hash_size = 64
+word_types_to_retain = ["名詞"]
+weight_table = {"名詞固有名詞": 4,      #TODO: 测试一下这个相等方面有没有编码上的问题
+                "名詞数": 0,
+                "名詞代名詞": 0,
+                "名詞接尾": 0}
 
-
-
-
-# For Sources
+# For Resources
 livedoor_rss = {"主要": "http://news.livedoor.com/topics/rss/top.xml",
                   "国内": "http://news.livedoor.com/topics/rss/dom.xml",
                   "海外": "http://news.livedoor.com/topics/rss/int.xml",
@@ -27,4 +32,24 @@ livedoor_rss = {"主要": "http://news.livedoor.com/topics/rss/top.xml",
                   "グルメ": "http://news.livedoor.com/topics/rss/gourmet.xml",
                   "女子": "http://news.livedoor.com/topics/rss/love.xml",
                   "トレンド": "http://news.livedoor.com/topics/rss/trend.xml"}
+
+all_rss = livedoor_rss.values() + ["http://news.goo.ne.jp/rss/topstories/nation/index.rdf"]
+
+
+          # ["http://headlines.yahoo.co.jp/rss/all-dom.xml",  # ヤフーニュース　国内
+          #                          "http://headlines.yahoo.co.jp/rss/all-c_int.xml",  # ヤフーニュース　国際
+          #                          "http://headlines.yahoo.co.jp/rss/all-bus.xml",  # ヤフーニュース　経済
+          #                          "http://headlines.yahoo.co.jp/rss/all-c_ent.xml",  # ヤフーニュース　エンタメ
+          #                          "http://headlines.yahoo.co.jp/rss/all-c_spo.xml",  # ヤフーニュース　スポーツ
+          #                          "http://headlines.yahoo.co.jp/rss/all-c_sci.xml",  # ヤフーニュース　IT・科学
+          #                          "http://headlines.yahoo.co.jp/rss/all-c_life.xml",  # ヤフーニュース　ライフ
+          #                          "http://headlines.yahoo.co.jp/rss/all-loc.xml"]  # ヤフーニュース　地域
+
+
+if __name__ == "__main__":
+    debug_tools.console_print("all_rss:")
+    for each in all_rss:
+        print("  {each}".format(each=each))
+
+
 
